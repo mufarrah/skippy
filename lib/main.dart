@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import 'my_home_page.dart';
+import 'view /Login.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: Size(428, 926),
-        builder: () => MaterialApp(
+        builder: () => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 primaryColor: Color(0xffFEFDFD),
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
                   child: widget,
                 );
               },
-              home: MyHomePage(),
+              home: Login(),
             ));
   }
 }

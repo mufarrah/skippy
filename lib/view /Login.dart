@@ -1,19 +1,20 @@
 import 'dart:ui';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:skippy/view%20/signUp.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage();
+class Login extends StatefulWidget {
+  Login();
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _LoginState createState() => _LoginState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -70,24 +71,31 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(color: Colors.blue, fontSize: 15),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: 250,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Container(
+                    height: 50.h,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: FlatButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 130,
                 ),
-                Text('New User? Create Account')
+                InkWell(
+                    onTap: () {
+                      Get.to(() => SignUp());
+                    },
+                    child: Text('New User? Create Account'))
               ],
             ),
           ),
