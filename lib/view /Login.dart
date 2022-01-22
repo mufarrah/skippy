@@ -5,6 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import 'package:skippy/auth/authentication-service.dart';
+import 'package:skippy/main.dart';
+import 'package:skippy/view%20/homePage.dart';
 import 'package:skippy/view%20/signUp.dart';
 
 class Login extends StatefulWidget {
@@ -15,8 +19,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     var width = MediaQuery.of(context).size.width;
     var hight = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -44,6 +52,7 @@ class _LoginState extends State<Login> {
                   //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
+                    controller: emailController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
@@ -55,6 +64,7 @@ class _LoginState extends State<Login> {
                       left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
+                    controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -80,7 +90,13 @@ class _LoginState extends State<Login> {
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(20)),
                     child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () { 
+                        context.read<AuthenticationService>().signIn(
+                          email: emailController.text.trim(), 
+                          password: passwordController.text.trim()).then((value) => {
+                            value ? Get.to(() => HomePage()) : print(value)
+                          });
+                      },
                       child: Text(
                         'Login',
                         style: TextStyle(color: Colors.white, fontSize: 25),

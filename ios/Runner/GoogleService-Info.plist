@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>502290909247-bvq61521635me00ntfmi3tlg8f4dqtc7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.502290909247-bvq61521635me00ntfmi3tlg8f4dqtc7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAXifAyU6r0szVDeHS-YLYxsT9HSEKXXMc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>502290909247</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.skippy</string>
+	<key>PROJECT_ID</key>
+	<string>skippy-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>skippy-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:502290909247:ios:dc83ec601544d6afae508a</string>
+</dict>
+</plist>

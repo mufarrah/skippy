@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import 'package:skippy/auth/authentication-service.dart';
+import 'package:skippy/view%20/Login.dart';
 import 'package:skippy/view%20/signUp.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +27,17 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Theme.of(context).primaryColor,
           body: Container(
             child: Center(
-              child: Text('Welcome'),
+              child: Column(
+                children: [
+                  Text("Welcome"),
+                  RaisedButton(
+                    onPressed: (){
+                      context.read<AuthenticationService>().signOut().then((value) => Get.to(() => Login()));
+                    },
+                    child: Text("signout"),
+                  )
+                ],
+              ),
             ),
           )),
     );

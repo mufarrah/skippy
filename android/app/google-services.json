@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "502290909247",
+    "project_id": "skippy-app",
+    "storage_bucket": "skippy-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502290909247:android:f2c4f113326a8330ae508a",
+        "android_client_info": {
+          "package_name": "com.example.skippy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502290909247-7amkiclh15sdsa81m3fh4s52lsh7ur62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8OVBft-uuf0rOF3gGCLKtZcBd5Q5vJFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502290909247-7amkiclh15sdsa81m3fh4s52lsh7ur62.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502290909247-bvq61521635me00ntfmi3tlg8f4dqtc7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.skippy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

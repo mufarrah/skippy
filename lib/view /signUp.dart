@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import 'package:skippy/auth/authentication-service.dart';
+import 'package:skippy/view%20/homePage.dart';
 
 import 'Login.dart';
 
@@ -16,6 +19,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -41,38 +47,39 @@ class _SignUpState extends State<SignUp> {
                     'assets/images/VR1.png',
                   ),
                 ),
-                Padding(
-                  //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Phone number',
-                        hintText: 'Enter your phone number eg 434222231'),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15.0, right: 15.0, top: 15, bottom: 0),
-                  //padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Name',
-                        hintText: 'Enter your name'),
-                  ),
-                ),
+                // Padding(
+                //   //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                //   padding: EdgeInsets.symmetric(horizontal: 15),
+                //   child: TextField(
+                //     decoration: InputDecoration(
+                //         border: OutlineInputBorder(),
+                //         labelText: 'Phone number',
+                //         hintText: 'Enter your phone number eg 434222231'),
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
-                    obscureText: true,
+                    controller: emailController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com'),
+                        hintText: 'Enter your email'),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 15.0, right: 15.0, top: 15, bottom: 0),
+                  //padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: TextField(
+                    controller: passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                        hintText: 'Enter a secure password'),
                   ),
                 ),
                 SizedBox(
@@ -87,7 +94,13 @@ class _SignUpState extends State<SignUp> {
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(20)),
                     child: FlatButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<AuthenticationService>().signUp(
+                          email: emailController.text.trim(), 
+                          password: passwordController.text.trim()).then((value) => {
+                            value ? Get.to(() => HomePage()) : print(value)
+                          });
+                      },
                       child: Text(
                         'Sign Up',
                         style: TextStyle(color: Colors.white, fontSize: 25),
