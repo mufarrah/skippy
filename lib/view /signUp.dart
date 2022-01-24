@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:skippy/auth/authentication-service.dart';
+import 'package:skippy/auth/googleSignInProvider.dart';
 import 'package:skippy/view%20/homePage.dart';
 
 import 'Login.dart';
@@ -128,7 +129,12 @@ class _SignUpState extends State<SignUp> {
                         borderRadius: BorderRadius.circular(20)),
                     child: FlatButton(
                       color: const Color(0xFF4285F4),
-                      onPressed: () {},
+                      onPressed: () {
+                        final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                        provider.googleLogin().then((value) => {
+                          value ? Get.to(() => HomePage()) : print(value)
+                        });
+                      },
                       child: FittedBox(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

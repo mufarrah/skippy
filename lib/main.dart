@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:skippy/auth/authentication-service.dart';
+import 'package:skippy/auth/googleSignInProvider.dart';
 import 'package:skippy/view%20/homePage.dart';
+import 'package:skippy/view%20/signUp.dart';
 
 import 'view /Login.dart';
 
@@ -28,6 +30,9 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) => context.read<AuthenticationService>().authStateChanges,
           initialData: null,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => GoogleSignInProvider()
         )
       ],
       child: ScreenUtilInit(
@@ -65,6 +70,6 @@ class AuthenticationWrapper extends StatelessWidget{
       return HomePage();
     }
     // not signed
-    return Login();
+    return SignUp();
   }
 }
